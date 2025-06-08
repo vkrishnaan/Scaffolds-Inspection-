@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scaffold Inspection - SafeBot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      max-width: 400px;
+      text-align: center;
+    }
+    .robot {
+      width: 100px;
+      margin-bottom: 20px;
+    }
+    .speak {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .speak:hover {
+      background: #0056b3;
+    }
+  </style>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+  <div class="container">
+    <lottie-player class="robot" src="https://assets10.lottiefiles.com/packages/lf20_u4yrau.json" background="transparent" speed="1" loop autoplay></lottie-player>
+    <h2>Scaffold Inspection Briefing</h2>
+    <p><strong>Location:</strong> Zone A - North Scaffold<br/>
+       <strong>Inspection Date:</strong> 11 June 2025<br/>
+       <strong>Status:</strong> SAFE (Valid for use)<br/>
+       <strong>Hazards:</strong> Falling objects, improper access<br/>
+       <strong>Controls:</strong> Toe boards, proper tagging, daily inspection<br/>
+    </p>
+    <button class="speak" onclick="speakDetails()">🔊 Hear Briefing</button>
+  </div>
+
+  <script>
+    function speakDetails() {
+      const message = `This scaffold located in Zone A North has been inspected on June eleventh, twenty twenty-five. It is marked safe for use. Hazards include falling objects and improper access. Safety controls in place are toe boards, proper tagging, and daily inspections. Ensure full body harness is worn at all times.`;
+      const utterance = new SpeechSynthesisUtterance(message);
+      utterance.lang = 'en-US';
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
